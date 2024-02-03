@@ -2,10 +2,10 @@
   "name": "desmet-bot",
   "version": "1.0.0",
   "description": "A discord bot for our community in \"HEH rookie\"",
-  "type": "commonjs",
-  "main": "index.js",
+  "type": "module",
+  "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx ts-node -esm ./index.ts"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "axios": "^1.6.7",
     "dayjs": "^1.11.10",
     "discord.js": "^14.14.1",
+    "dotenv": "^16.4.1",
     "ical": "^0.8.0"
   },
   "devDependencies": {
