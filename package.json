@@ -2,7 +2,7 @@
   "name": "desmet-bot",
   "version": "1.0.0",
   "description": "A discord bot for our community in \"HEH rookie\"",
-  "type": "module",
+  "type": "commonjs",
   "main": "index.ts",
   "scripts": {
     "start": "npx ts-node -esm ./index.ts"
