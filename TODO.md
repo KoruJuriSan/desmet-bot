@@ -1,11 +1,11 @@
 # 1.0.0
 - [x] ping command
 
-- [] Finish first prototype of schedule command
-    - [] command
-    - [] button
+- [x] Finish first prototype of schedule command
+    - [x] command
+    - [x] button
     - [x] api request
-    - [] api data treatment
+    - [x] api data treatment
 
 - [] Optimise first prototype
     - [] separate in more files
