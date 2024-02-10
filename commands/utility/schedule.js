@@ -46,11 +46,11 @@ module.exports = {
         const button = client.buttons.get("schedule")
         const row = new ActionRowBuilder()
             .addComponents(
-                button.create("Hier", ButtonStyle.Danger, group, "yesterday"),
-                button.create("Aujourd'hui", ButtonStyle.Success, group, "today"),
-                button.create("Demain", ButtonStyle.Primary, group, "tomorrow"),
-                button.create("Après-Demain", ButtonStyle.Secondary, group, "aftertomorrow"),
-                button.create("Surlendemain", ButtonStyle.Secondary, group, "inthreedays")
+                button.create("Hier", ButtonStyle.Danger, group, -1),
+                button.create("Aujourd'hui", ButtonStyle.Success, group, 0),
+                button.create("Demain", ButtonStyle.Primary, group, 1),
+                button.create("Après-Demain", ButtonStyle.Secondary, group, 2),
+                button.create("Surlendemain", ButtonStyle.Secondary, group, 3)
             )
 
         // Bot's response to the command
