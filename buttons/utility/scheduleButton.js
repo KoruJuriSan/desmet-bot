@@ -3,6 +3,7 @@ const requestIcsFromUrl = require("../../scripts/requestIcsFromUrl")
 const { EmbedBuilder, ButtonBuilder } = require("discord.js")
 const dotenv = require("dotenv")
 const hehIcalTreatment = require("../../scripts/hehIcalTreatment")
+const IcsHeH = require("../../classes/IcsHeH")
 
 daysValue = {
     yesterday: -1,
@@ -46,7 +47,7 @@ module.exports = {
         const day_end = dayjs().add(dayValue, "day").endOf("day")
         const dayOfTheWeekText = daysOfTheWeekFrenchText[dayjs().add(dayValue, "day").day()]
         const dateText = day_start.format("DD/MM/YYYY")
-        let schedule = hehIcalTreatment( await requestIcsFromUrl(ICALURL), day_start, day_end)
+        let schedule = await new IcsHeH(ICALURL).getCourses(day_start, day_end)
         schedule = schedule.filter((course) => course.group == "common" || course.group == group)
         schedule.sort((e1, e2) => e1.date.start.isBefore(e2.date.start) ? -1 : 1)
 
@@ -63,11 +64,11 @@ module.exports = {
                     inline: false
                 }
             }))
-            .setColor("#00b0f4")
+            .setColor("#8fbc8f")
             .setFooter({
-                text: "If you have any idea > #desmet-bot",
-                iconURL: ICALURL,
-            });
+                text: "Si vous avez une idée pour améliorer le bot => #desmet-bot",
+                iconURL: client.user.avatarURL()
+            })
 
         interaction.reply({
             embeds: [embed]
