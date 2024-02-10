@@ -3,6 +3,7 @@ const { EmbedBuilder, ButtonBuilder } = require("discord.js")
 const dotenv = require("dotenv")
 const IcsHeH = require("../../classes/IcsHeH")
 const couldBeInteger = require("../../lib/couldBeInteger")
+const computeStartAndEndOfADay = require("../../lib/computeStartAndEndOfADay")
 
 daysFrenchText = {
     "-1": "Hier",
@@ -28,9 +29,11 @@ module.exports = {
     },
 
     async execute(interaction, client, args) {
+        // getting Ical url from .env file
         dotenv.config()
         const ICALURL = process.env.ICALURL
 
+        // treating args from the button
         let day_offset = 0
         if (couldBeInteger(args.day)) {
             day_offset = parseInt(args.day)
@@ -38,14 +41,19 @@ module.exports = {
 
         const group = args.group ?? "1"
 
-        const day_start = dayjs().add(day_offset, "day").startOf("day")
-        const day_end = dayjs().add(day_offset, "day").endOf("day")
+        // Compute the start and end times of the chosen day
+        const choosen_day = dayjs().add(day_offset, "day")
+        const [day_start, day_end] = computeStartAndEndOfADay(choosen_day)
+
+        // Some textes for the embed
         const dayOfTheWeekText = daysOfTheWeekFrenchText[dayjs().add(day_offset, "day").day()]
         const dateText = day_start.format("DD/MM/YYYY")
 
+        // Schedule from the online ics.
         let schedule = await new IcsHeH(ICALURL)
             .getCoursesOfGroup(day_start, day_end, group)
 
+        // Embed of the course schedule that the user requested.
         const embed = new EmbedBuilder()
             .setTitle(`Horraire: ${daysFrenchText[String(day_offset)]} - ${dayOfTheWeekText} ${dateText}`)
             .setURL(ICALURL)
