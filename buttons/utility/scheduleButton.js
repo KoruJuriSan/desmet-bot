@@ -45,13 +45,14 @@ module.exports = {
         }
 
         const group = args.group ?? "1"
+
         const day_start = dayjs().add(day_offset, "day").startOf("day")
         const day_end = dayjs().add(day_offset, "day").endOf("day")
         const dayOfTheWeekText = daysOfTheWeekFrenchText[dayjs().add(day_offset, "day").day()]
         const dateText = day_start.format("DD/MM/YYYY")
-        let schedule = await new IcsHeH(ICALURL).getCourses(day_start, day_end)
-        schedule = schedule.filter((course) => course.group == "common" || course.group == group)
-        schedule.sort((e1, e2) => e1.date.start.isBefore(e2.date.start) ? -1 : 1)
+
+        let schedule = await new IcsHeH(ICALURL)
+            .getCoursesOfGroup(day_start, day_end, group)
 
         const embed = new EmbedBuilder()
             .setTitle(`Horraire: ${daysFrenchText[String(day_offset)]} - ${dayOfTheWeekText} ${dateText}`)

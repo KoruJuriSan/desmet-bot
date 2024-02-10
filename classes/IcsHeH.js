@@ -58,6 +58,15 @@ module.exports = class IcsHeH {
     }
 
 
+    sortCourses(courses) {
+        let sortedCourses = courses
+        courses.sort((e1, e2) => {
+            return e1.date.start.isBefore(e2.date.start) ? -1 : 1
+        })
+        return sortedCourses
+    }
+
+
     async getCourses(from_period, to_period) {
         const ics = await this.requestIcs(this.url)
         let courses = new Array(Object.keys(ics).length)
@@ -88,6 +97,15 @@ module.exports = class IcsHeH {
             }
         }
         
-        return courses
+        return this.sortCourses(courses)
+    }
+
+
+    async getCoursesOfGroup(from_period, to_period, group) {
+        const courses = await this.getCourses(from_period, to_period)
+        const  filteredCourses = courses.filter((course) => {
+            return course.group == "common" || course.group == group
+        })
+        return filteredCourses
     }
 }
