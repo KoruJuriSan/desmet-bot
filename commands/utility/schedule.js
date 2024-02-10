@@ -1,4 +1,11 @@
-const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js")
+const { SlashCommandBuilder, 
+        EmbedBuilder,
+        ActionRowBuilder,
+        ButtonBuilder,
+        ButtonStyle
+} = require("discord.js")
+
+const thumbnailURL = "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fpaomedia%2Fsmall-n-flat%2F1024%2Fcalendar-icon.png&f=1&nofb=1&ipt=4a6b7134cc885fb7fc2dc0146a5009b6d53b3ebf20879bc16b00982e2365133c&ipo=images"
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -7,15 +14,11 @@ module.exports = {
         .addStringOption(option => 
             option
                 .setName("groupe")
-                .setDescription("de quel groupe voulez-vous avoir l'horraire ? 1-4")
+                .setDescription("de quel groupe voulez-vous avoir l'horraire ? 1-5")
                 .setRequired(true)
-                .addChoices(
-                    {name: "groupe 1", value: "1"},
-                    {name: "groupe 2", value: "2"},
-                    {name: "groupe 3", value: "3"},
-                    {name: "groupe 4", value: "4"},
-                    {name: "groupe 5", value: "5"}
-                )
+                .addChoices(...new Array(5).fill(0).map((e, k) => {
+                    return {name: `group ${k+1}`, value: String(k+1)}
+                }))
         )
         .addBooleanOption(option =>
             option
@@ -23,49 +26,38 @@ module.exports = {
                 .setDescription("est-ce que le message doit-etre invisible pour les autre utilisateurs ou non ?")
         ),
     async execute(interaction, client) {
+        // geting command's args
+        args = interaction.options
+        group = args.getString("groupe")
+        isEphemeral = args.getBoolean("ephemeral") ?? true
 
-        group = interaction.options.getString("groupe")
-        ephemeral = interaction.options.getBoolean("ephemeral") ?? true
-
+        // Embed describes what does the button under it
         const embed = new EmbedBuilder()
             .setTitle("Horraire")
-            .setURL("https://example.com")
-            .setDescription(`Horraire des cours pour les eleves en Bacherliers d'informatique a la HEH, l'horraire suivant est pour le groupe ${group}\n\n> Hier\n> Aujourd'hui\n> Demain\n> Apres-demain\n> Surlandemain`)
-            .setColor("#ff4500")
-            .setThumbnail("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fpaomedia%2Fsmall-n-flat%2F1024%2Fcalendar-icon.png&f=1&nofb=1&ipt=4a6b7134cc885fb7fc2dc0146a5009b6d53b3ebf20879bc16b00982e2365133c&ipo=images")
+            .setDescription(`Horaire des cours pour les élèves en première année de Bacheliers en informatique à la HEH. L'horaire suivant est pour le groupe ${group}\n\n> Hier\n> Aujourd'hui\n> Demain\n> Apres-demain\n> Surlandemain \n`)
+            .setThumbnail(thumbnailURL)
+            .setColor("#8fbc8f")
+            .setFooter({
+                text: "Si jamais il y un probleme avec le bot => #desmet-bot",
+                iconURL: client.user.avatarURL()
+            })
 
-        const yesterday = new ButtonBuilder()
-            .setCustomId(`schedule#day:yesterday,group:${group}`)
-            .setLabel("Hier")
-            .setStyle(ButtonStyle.Danger)
-
-        const today = new ButtonBuilder()
-            .setCustomId(`schedule#day:today,group:${group}`)
-            .setLabel("Aujourd'hui")
-            .setStyle(ButtonStyle.Success)
-
-        const tomorrow = new ButtonBuilder()
-            .setCustomId(`schedule#day:tomorrow,group:${group}`)
-            .setLabel("Demain")
-            .setStyle(ButtonStyle.Primary)
-
-        const afterTomorrow = new ButtonBuilder()
-            .setCustomId(`schedule#day:aftertomorrow,group:${group}`)
-            .setLabel("Après-Demain")
-            .setStyle(ButtonStyle.Secondary)
-
-        const inThreeDays = new ButtonBuilder()
-            .setCustomId(`schedule#day:inthreedays,group:${group}`)
-            .setLabel("Surlendemain")
-            .setStyle(ButtonStyle.Secondary)
-
+        // Buttons under the embeds, each button with its own "day-offset"
+        const button = client.buttons.get("schedule")
         const row = new ActionRowBuilder()
-            .addComponents(yesterday, today, tomorrow, afterTomorrow, inThreeDays)
+            .addComponents(
+                button.create("Hier", ButtonStyle.Danger, group, "yesterday"),
+                button.create("Aujourd'hui", ButtonStyle.Success, group, "today"),
+                button.create("Demain", ButtonStyle.Primary, group, "tomorrow"),
+                button.create("Après-Demain", ButtonStyle.Secondary, group, "aftertomorrow"),
+                button.create("Surlendemain", ButtonStyle.Secondary, group, "inthreedays")
+            )
 
+        // Bot's response to the command
         interaction.reply({
             embeds: [embed],
             components: [row],
-            ephemeral: ephemeral
+            ephemeral: isEphemeral
         })
     }
 }

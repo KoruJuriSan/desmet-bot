@@ -28,8 +28,7 @@ daysOfTheWeekFrenchText = [
 
 module.exports = {
     name: "schedule",
-
-    async create(label, style, group, day_offset) {
+    create(label, style, group, day_offset) {
         return new ButtonBuilder()
             .setCustomId(`schedule#day:${day_offset},group:${group}`)
             .setLabel(label)
