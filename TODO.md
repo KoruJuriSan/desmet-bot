@@ -7,8 +7,8 @@
     - [x] api request
     - [x] api data treatment
 
-- [] Optimise first prototype
-    - [] separate in more files
+- [x] Optimise first prototype
+    - [x] separate in more files
 
 - [] Transition to final stack
     - [] move from Node.js to Deno
