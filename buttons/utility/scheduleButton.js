@@ -4,14 +4,6 @@ const dotenv = require("dotenv")
 const IcsHeH = require("../../classes/IcsHeH")
 const couldBeInteger = require("../../lib/couldBeInteger")
 
-daysValue = {
-    yesterday: -1,
-    today: 0,
-    tomorrow: 1,
-    aftertomorrow: 2,
-    inthreedays: 3
-}
-
 daysFrenchText = {
     "-1": "Hier",
     "0": "Aujourd'hui",
