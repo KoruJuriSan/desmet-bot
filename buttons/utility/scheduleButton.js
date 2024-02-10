@@ -1,8 +1,6 @@
 const dayjs = require("dayjs")
-const requestIcsFromUrl = require("../../scripts/requestIcsFromUrl")
 const { EmbedBuilder, ButtonBuilder } = require("discord.js")
 const dotenv = require("dotenv")
-const hehIcalTreatment = require("../../scripts/hehIcalTreatment")
 const IcsHeH = require("../../classes/IcsHeH")
 
 daysValue = {
