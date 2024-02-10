@@ -1,13 +1,12 @@
-const { SlashCommandBuilder, 
+import { SlashCommandBuilder, 
         EmbedBuilder,
         ActionRowBuilder,
-        ButtonBuilder,
         ButtonStyle
-} = require("discord.js")
+} from "discord.js"
 
 const thumbnailURL = "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fpaomedia%2Fsmall-n-flat%2F1024%2Fcalendar-icon.png&f=1&nofb=1&ipt=4a6b7134cc885fb7fc2dc0146a5009b6d53b3ebf20879bc16b00982e2365133c&ipo=images"
 
-module.exports = {
+export default {
     data: new SlashCommandBuilder()
         .setName("schedule")
         .setDescription("Donne l'horraire pour un groupe precis dans ")
@@ -27,9 +26,9 @@ module.exports = {
         ),
     async execute(interaction, client) {
         // geting command's args
-        args = interaction.options
-        group = args.getString("groupe")
-        isEphemeral = args.getBoolean("ephemeral") ?? true
+        const args = interaction.options
+        const group = args.getString("groupe")
+        const isEphemeral = args.getBoolean("ephemeral") ?? true
 
         // Embed describes what does the button under it
         const embed = new EmbedBuilder()

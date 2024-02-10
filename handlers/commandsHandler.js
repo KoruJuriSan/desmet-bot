@@ -1,8 +1,12 @@
-const fs = require("node:fs")
-const path = require("node:path")
-const { Collection } = require("discord.js")
+import fs from "fs"
+import path from "path"
+import { Collection } from "discord.js"
+import { fileURLToPath } from "url"
 
-module.exports = function commandsHandler(client) {
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+export default async function commandsHandler(client) {
     client.commands = new Collection()
     const foldersPath = path.join(__dirname, "../",  "commands")
     const commandFolders = fs.readdirSync(foldersPath)
@@ -12,8 +16,8 @@ module.exports = function commandsHandler(client) {
         const commandsPath = path.join(foldersPath, folder)
         let commandFiles = fs.readdirSync(commandsPath)
         for (const file of commandFiles) {
-            filePath = path.join(commandsPath, file)
-            const command = require(filePath)
+            const filePath = path.join(commandsPath, file)
+            const {default: command }= await import(filePath)
             if (!("data" in command)) {
                 console.log(`[WARNING] The command at ${filePath} is missing a required "data" property.`)
             } else if (!("execute" in command)) {

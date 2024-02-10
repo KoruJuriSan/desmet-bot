@@ -12,7 +12,7 @@
 
 - [] Transition to final stack
     - [] move from Node.js to Deno
-    - [] move from Commonjs to ESC modules
+    - [x] move from Commonjs to ESC modules
     - [] move from Js to Typescript
     - [] add a testing library
     - [] setup tests

@@ -1,11 +1,11 @@
-const dayjs = require("dayjs")
-const { EmbedBuilder, ButtonBuilder } = require("discord.js")
-const dotenv = require("dotenv")
-const IcsHeH = require("../../classes/IcsHeH")
-const couldBeInteger = require("../../lib/couldBeInteger")
-const computeStartAndEndOfADay = require("../../lib/computeStartAndEndOfADay")
+import dayjs from "dayjs"
+import { EmbedBuilder, ButtonBuilder } from "discord.js"
+import dotenv from "dotenv"
+import IcsHeH from "../../classes/IcsHeH.js"
+import couldBeInteger from "../../lib/couldBeInteger.js"
+import computeStartAndEndOfADay from "../../lib/computeStartAndEndOfADay.js"
 
-daysFrenchText = {
+const daysFrenchText = {
     "-1": "Hier",
     "0": "Aujourd'hui",
     "1": "Demain",
@@ -13,13 +13,13 @@ daysFrenchText = {
     "3": "Surlendemain"
 }
 
-daysOfTheWeekFrenchText = [
+const daysOfTheWeekFrenchText = [
     "Dimanche", "Lundi", "Mardi", 
     "Mercredi", "Jeudi", "Vendredi",
     "Samedi",
 ]
 
-module.exports = {
+export default {
     name: "schedule",
     create(label, style, group, day_offset) {
         return new ButtonBuilder()
@@ -59,8 +59,8 @@ module.exports = {
             .setURL(ICALURL)
             .setDescription(`Horraire des cours de l'option pour le **Groupe ${group}**`)
             .addFields(...schedule.map(course => {
-                startHourText = course.date.start.format("HH:mm")
-                endHoursText = course.date.end.format("HH:mm")
+                const startHourText = course.date.start.format("HH:mm")
+                const endHoursText = course.date.end.format("HH:mm")
                 return {
                     name: `__${course.subject} ${course.group == "common" ? "" : `(Gr${group})` }__`,
                     value: `⏲ ${startHourText} - ${endHoursText}\n☛ ${course.room} ☚\n> ${course.teacher}`,

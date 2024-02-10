@@ -1,7 +1,7 @@
-const { REST, Routes } = require("discord.js")
-const fs = require("node:fs")
-const path = require("node:path")
-const dotenv = require("dotenv")
+import { REST, Routes } from "discord.js"
+import fs from "fs"
+import path from "path"
+import dotenv from "dotenv"
 
 async function registerCommands() {
     dotenv.config()
@@ -20,7 +20,7 @@ async function registerCommands() {
         let commandFiles = fs.readdirSync(commandsPath)
         for (const file of commandFiles) {
             filePath = path.join(commandsPath, file)
-            const command = require(filePath)
+            const {default: command} = await import(filePath)
             if (!("data" in command)) {
                 console.log(`[WARNING] The command at ${filePath} is missing a required "data" property.`)
             } else if (!("execute" in command)) {

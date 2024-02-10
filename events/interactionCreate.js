@@ -1,4 +1,4 @@
-module.exports = async (interaction, client) => {
+export default async (interaction, client) => {
     if (interaction.isChatInputCommand()) {
         const command = interaction.client.commands.get(interaction.commandName)
         if (!command) {
@@ -18,18 +18,18 @@ module.exports = async (interaction, client) => {
             }
         }
     } else if (interaction.isButton()) {
-        customId = interaction.customId
-        buttonName = customId.split("#")[0]
+        const customId = interaction.customId
+        const buttonName = customId.split("#")[0]
 
-        args = {}
+        let args = {}
         if (customId.includes("#") && customId.includes(":")) {
             customId.split("#")[1].split(",").forEach(element => {
-                items = element.split(":")
+                let items = element.split(":")
                 args[items[0]] = items[1]
             })
         }
 
-        button = client.buttons.get(buttonName)
+        const button = client.buttons.get(buttonName)
         if (!button) {
             console.error(`An Unknown command as been called "${interaction.commandName}"`)
             return

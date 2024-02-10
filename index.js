@@ -1,24 +1,29 @@
-const { Client, GatewayIntentBits} = require("discord.js")
-const dotenv = require("dotenv")
-const commandsHandler = require("./handlers/commandsHandler")
-const buttonsHandler = require("./handlers/buttonsHandler")
-const interactionCreate = require("./events/interactionCreate")
-const ready = require("./events/ready")
+import { Client, GatewayIntentBits} from "discord.js"
+import dotenv from "dotenv"
+import buttonsHandler from "./handlers/buttonsHandler.js"
+import interactionCreate from "./events/interactionCreate.js"
+import commandsHandler from "./handlers/commandsHandler.js"
+import ready from "./events/ready.js"
 
-dotenv.config()
-const TOKEN = process.env.TOKEN
 
-const client = new Client({ intents: GatewayIntentBits.GuildMembers})
+async function main() {
+    dotenv.config()
+    const TOKEN = process.env.TOKEN
 
-commandsHandler(client)
-buttonsHandler(client)
+    const client = new Client({ intents: GatewayIntentBits.GuildMembers})
 
-client.on("ready", async () => {
-    ready(client)
-})
+    await commandsHandler(client)
+    await buttonsHandler(client)
 
-client.on("interactionCreate", async interaction => {
-    interactionCreate(interaction, client)
-})
+    client.on("ready", async () => {
+        ready(client)
+    })
 
-client.login(TOKEN)
+    client.on("interactionCreate", async interaction => {
+        interactionCreate(interaction, client)
+    })
+
+    client.login(TOKEN)
+}
+
+main()

@@ -1,8 +1,12 @@
-const { Collection } = require("discord.js")
-const fs = require("node:fs")
-const path = require("node:path")
+import { Collection } from "discord.js"
+import fs from "fs"
+import path from "path"
+import { fileURLToPath } from "url"
 
-module.exports = function buttonsHandler(client) {
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+export default async function buttonsHandler(client) {
     client.buttons = new Collection()
     const foldersPath = path.join(__dirname, "../",  "buttons")
     const buttonFolders = fs.readdirSync(foldersPath)
@@ -12,8 +16,8 @@ module.exports = function buttonsHandler(client) {
         const buttonsPath = path.join(foldersPath, folder)
         let buttonFiles = fs.readdirSync(buttonsPath)
         for (const file of buttonFiles) {
-            filePath = path.join(buttonsPath, file)
-            const button = require(filePath)
+            const filePath = path.join(buttonsPath, file)
+            const {default: button} = await import(filePath)
             if (!("name" in button)) {
                 console.log(`[WARNING] The button at ${filePath} is missing a required "name" property.`)
             } else if (!("execute" in button)) {

@@ -1,8 +1,8 @@
-const axios = require("axios")
-const ical = require("ical")
-const dayjs = require("dayjs")
+import axios from "axios"
+import ical from "ical"
+import dayjs from "dayjs"
 
-module.exports = class IcsHeH {
+export default class IcsHeH {
     url;
 
     constructor(url) {

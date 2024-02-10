@@ -1,12 +1,12 @@
-const { SlashCommandBuilder } = require("discord.js")
+import { SlashCommandBuilder } from "discord.js"
 
-module.exports = {
+export default {
     data: new SlashCommandBuilder()
         .setName("ping")
         .setDescription("Donne la latence entre le serveur discord et le bot."),
         
     async execute(interaction) {
-        latency = Date.now() - interaction.createdTimestamp
+        const latency = Date.now() - interaction.createdTimestamp
         await interaction.reply({
             content: `Latence: \`${latency}ms\``,
             ephemeral: true
