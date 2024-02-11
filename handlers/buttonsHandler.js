@@ -11,7 +11,7 @@ export default async function buttonsHandler(client) {
     const foldersPath = path.join(__dirname, "../",  "buttons")
     const buttonFolders = fs.readdirSync(foldersPath)
 
-    console.log("--- Loading buttons ---")
+    console.log("-------- Loading buttons ---------")
     for (const folder of buttonFolders) {
         const buttonsPath = path.join(foldersPath, folder)
         const buttonFiles = fs.readdirSync(buttonsPath)

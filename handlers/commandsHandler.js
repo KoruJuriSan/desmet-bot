@@ -11,7 +11,7 @@ export default async function commandsHandler(client) {
     const foldersPath = path.join(__dirname, "../",  "commands")
     const commandFolders = fs.readdirSync(foldersPath)
 
-    console.log("--- Loading commands ---")
+    console.log("--- Loading commands in client ---")
     for (const folder of commandFolders) {
         const commandsPath = path.join(foldersPath, folder)
         const commandFiles = fs.readdirSync(commandsPath)
