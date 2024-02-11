@@ -11,7 +11,7 @@
     - [x] separate in more files
 
 - [] Transition to final stack
-    - [] move from Node.js to Deno
+    - [x] move from Node.js to Deno
     - [x] move from Commonjs to ESC modules
     - [] move from Js to Typescript
     - [] add a testing library
