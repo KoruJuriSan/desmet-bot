@@ -13,6 +13,6 @@
 - [] Transition to final stack
     - [x] move from Node.js to Deno
     - [x] move from Commonjs to ESC modules
-    - [] move from Js to Typescript
-    - [] add a testing library
-    - [] setup tests
+    - [-] move from Js to Typescript
+    - [x] add a testing library (Deno built-in)
+    - [-] setup tests
