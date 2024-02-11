@@ -2,7 +2,7 @@ import { SlashCommandBuilder,
         EmbedBuilder,
         ActionRowBuilder,
         ButtonStyle
-} from "discord.js"
+} from "npm:discord.js"
 
 const thumbnailURL = "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fpaomedia%2Fsmall-n-flat%2F1024%2Fcalendar-icon.png&f=1&nofb=1&ipt=4a6b7134cc885fb7fc2dc0146a5009b6d53b3ebf20879bc16b00982e2365133c&ipo=images"
 
@@ -16,7 +16,7 @@ export default {
                 .setDescription("de quel groupe voulez-vous avoir l'horraire ? 1-5")
                 .setRequired(true)
                 .addChoices(...new Array(5).fill(0).map((e, k) => {
-                    return {name: `group ${k+1}`, value: String(k+1)}
+                    return {name: String(k+1), value: String(k+1)}
                 }))
         )
         .addBooleanOption(option =>

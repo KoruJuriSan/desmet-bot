@@ -1,14 +1,14 @@
-import { Client, GatewayIntentBits} from "discord.js"
-import dotenv from "dotenv"
+import { Client, GatewayIntentBits} from "npm:discord.js"
 import buttonsHandler from "./handlers/buttonsHandler.js"
 import interactionCreate from "./events/interactionCreate.js"
 import commandsHandler from "./handlers/commandsHandler.js"
 import ready from "./events/ready.js"
+import getEnv from "./scripts/getEnv.js"
 
 
 async function main() {
-    dotenv.config()
-    const TOKEN = process.env.TOKEN
+    const env = await getEnv()
+    const TOKEN = env["TOKEN"]
 
     const client = new Client({ intents: GatewayIntentBits.GuildMembers})
 

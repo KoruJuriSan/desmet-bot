@@ -1,9 +1,9 @@
-import dayjs from "dayjs"
-import { EmbedBuilder, ButtonBuilder } from "discord.js"
-import dotenv from "dotenv"
+import dayjs from "npm:dayjs"
+import { EmbedBuilder, ButtonBuilder } from "npm:discord.js"
 import IcsHeH from "../../classes/IcsHeH.js"
 import couldBeInteger from "../../lib/couldBeInteger.js"
 import computeStartAndEndOfADay from "../../lib/computeStartAndEndOfADay.js"
+import getEnv from "../../scripts/getEnv.js"
 
 const daysFrenchText = {
     "-1": "Hier",
@@ -30,8 +30,8 @@ export default {
 
     async execute(interaction, client, args) {
         // getting Ical url from .env file
-        dotenv.config()
-        const ICALURL = process.env.ICALURL
+        const env = await getEnv()
+        const ICALURL = env["ICALURL"]
 
         // treating args from the button
         let day_offset = 0

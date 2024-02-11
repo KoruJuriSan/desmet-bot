@@ -1,6 +1,7 @@
-import axios from "axios"
-import ical from "ical"
-import dayjs from "dayjs"
+import axios from "npm:axios"
+// @deno-types="npm:@types/ical"
+import ical from "npm:ical"
+import dayjs from "npm:dayjs"
 
 export default class IcsHeH {
     url;

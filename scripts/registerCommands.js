@@ -1,25 +1,30 @@
-import { REST, Routes } from "discord.js"
-import fs from "fs"
-import path from "path"
-import dotenv from "dotenv"
+import { REST, Routes } from "npm:discord.js"
+import fs from "node:fs"
+import path from "node:path"
+import { fileURLToPath } from "node:url"
+import getEnv from "./getEnv.js"
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 async function registerCommands() {
-    dotenv.config()
-    TOKEN = process.env.TOKEN
-    GUILDID = process.env.GUILDID
-    CLIENTID = process.env.CLIENTID
-
-    const commands = []
+    const env = await getEnv()
+    const TOKEN = env["TOKEN"]
+    const GUILDID = env["GUILDID"]
+    const ICALURL = env["ICALURL"]
+    const CLIENTID = env["CLIENTID"]
 
     const foldersPath = path.join(__dirname, "../",  "commands")
     const commandFolders = fs.readdirSync(foldersPath)
+
+    let commands = []
 
     console.log("------ Loading commands ------")
     for (const folder of commandFolders) {
         const commandsPath = path.join(foldersPath, folder)
         let commandFiles = fs.readdirSync(commandsPath)
         for (const file of commandFiles) {
-            filePath = path.join(commandsPath, file)
+            const filePath = path.join(commandsPath, file)
             const {default: command} = await import(filePath)
             if (!("data" in command)) {
                 console.log(`[WARNING] The command at ${filePath} is missing a required "data" property.`)

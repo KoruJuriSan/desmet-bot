@@ -1,7 +1,7 @@
-import fs from "fs"
-import path from "path"
-import { Collection } from "discord.js"
-import { fileURLToPath } from "url"
+import fs from "node:fs"
+import path from "node:path"
+import { Collection } from "npm:discord.js"
+import { fileURLToPath } from "node:url"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)

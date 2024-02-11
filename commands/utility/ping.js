@@ -1,4 +1,4 @@
-import { SlashCommandBuilder } from "discord.js"
+import { SlashCommandBuilder } from "npm:discord.js"
 
 export default {
     data: new SlashCommandBuilder()

@@ -1,0 +1,6 @@
+{
+    "tasks": {
+        "refresh": "deno run --allow-env --allow-read --allow-net scripts/registerCommands.js",
+        "dev": "deno run --allow-env --allow-read --allow-net index.js"
+    }
+}
