@@ -15,7 +15,7 @@ export default {
                 .setName("groupe")
                 .setDescription("de quel groupe voulez-vous avoir l'horraire ? 1-5")
                 .setRequired(true)
-                .addChoices(...new Array(5).fill(0).map((e, k) => {
+                .addChoices(...new Array(5).fill(0).map((_, k) => {
                     return {name: String(k+1), value: String(k+1)}
                 }))
         )
