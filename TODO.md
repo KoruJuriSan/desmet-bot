@@ -10,9 +10,11 @@
 - [x] Optimise first prototype
     - [x] separate in more files
 
-- [] Transition to final stack
+- [x] Transition to final stack
     - [x] move from Node.js to Deno
     - [x] move from Commonjs to ESC modules
     - [-] move from Js to Typescript
     - [x] add a testing library (Deno built-in)
     - [-] setup tests
+
+- [] Deploy
