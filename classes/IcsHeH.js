@@ -60,7 +60,7 @@ export default class IcsHeH {
 
 
     sortCourses(courses) {
-        let sortedCourses = courses
+        const sortedCourses = courses
         courses.sort((e1, e2) => {
             return e1.date.start.isBefore(e2.date.start) ? -1 : 1
         })

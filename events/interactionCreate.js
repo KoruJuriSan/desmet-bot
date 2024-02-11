@@ -21,10 +21,10 @@ export default async (interaction, client) => {
         const customId = interaction.customId
         const buttonName = customId.split("#")[0]
 
-        let args = {}
+        const args = {}
         if (customId.includes("#") && customId.includes(":")) {
             customId.split("#")[1].split(",").forEach(element => {
-                let items = element.split(":")
+                const items = element.split(":")
                 args[items[0]] = items[1]
             })
         }

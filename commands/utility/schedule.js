@@ -53,7 +53,7 @@ export default {
             )
 
         // Bot's response to the command
-        interaction.reply({
+        await interaction.reply({
             embeds: [embed],
             components: [row],
             ephemeral: isEphemeral

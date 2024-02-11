@@ -14,7 +14,7 @@ export default async function buttonsHandler(client) {
     console.log("--- Loading buttons ---")
     for (const folder of buttonFolders) {
         const buttonsPath = path.join(foldersPath, folder)
-        let buttonFiles = fs.readdirSync(buttonsPath)
+        const buttonFiles = fs.readdirSync(buttonsPath)
         for (const file of buttonFiles) {
             const filePath = path.join(buttonsPath, file)
             const {default: button} = await import(filePath)

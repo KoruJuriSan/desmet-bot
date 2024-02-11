@@ -11,18 +11,17 @@ async function registerCommands() {
     const env = await getEnv()
     const TOKEN = env["TOKEN"]
     const GUILDID = env["GUILDID"]
-    const ICALURL = env["ICALURL"]
     const CLIENTID = env["CLIENTID"]
 
     const foldersPath = path.join(__dirname, "../",  "commands")
     const commandFolders = fs.readdirSync(foldersPath)
 
-    let commands = []
+    const commands = []
 
     console.log("------ Loading commands ------")
     for (const folder of commandFolders) {
         const commandsPath = path.join(foldersPath, folder)
-        let commandFiles = fs.readdirSync(commandsPath)
+        const commandFiles = fs.readdirSync(commandsPath)
         for (const file of commandFiles) {
             const filePath = path.join(commandsPath, file)
             const {default: command} = await import(filePath)
@@ -42,7 +41,7 @@ async function registerCommands() {
 
     try {
         console.log("--- Refreshing (/) commands ---")
-        const data = await rest.put(
+        await rest.put(
             Routes.applicationGuildCommands(CLIENTID, GUILDID),
             {body: commands}
         )

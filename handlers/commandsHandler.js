@@ -14,7 +14,7 @@ export default async function commandsHandler(client) {
     console.log("--- Loading commands ---")
     for (const folder of commandFolders) {
         const commandsPath = path.join(foldersPath, folder)
-        let commandFiles = fs.readdirSync(commandsPath)
+        const commandFiles = fs.readdirSync(commandsPath)
         for (const file of commandFiles) {
             const filePath = path.join(commandsPath, file)
             const {default: command }= await import(filePath)
