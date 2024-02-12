@@ -17,4 +17,4 @@
     - [x] add a testing library (Deno built-in)
     - [-] setup tests
 
-- [] Deploy
+- [x] Deploy
