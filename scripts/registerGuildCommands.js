@@ -7,9 +7,10 @@ import getEnv from "./getEnv.js"
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-async function main() {
+export default async function registerGuildCommands() {
     const env = await getEnv()
     const TOKEN = env["TOKEN"]
+    const GUILDID = env["GUILDID"]
     const CLIENTID = env["CLIENTID"]
 
     const foldersPath = path.join(__dirname, "../",  "commands")
@@ -41,7 +42,7 @@ async function main() {
     try {
         console.log("----- Refreshing (/) commands ----")
         await rest.put(
-            Routes.applicationCommands(CLIENTID),
+            Routes.applicationGuildCommands(CLIENTID, GUILDID),
             {body: commands}
         )
         console.log("Commands successfully refreshed! \n")
@@ -49,5 +50,3 @@ async function main() {
         console.error(err)
     }
 }
-
-main()

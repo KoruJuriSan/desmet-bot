@@ -1,5 +1,8 @@
 {
     "tasks": {
-        "start": "deno run --allow-env --allow-read --allow-net index.js"
+        "refresh": "deno run --allow-read --allow-env --allow-net  scripts/registerCommands.js",
+        "start": "deno run --allow-env --allow-read --allow-net index.js",
+        "guild-refresh": "deno run --allow-read --allow-env --allow-net  scripts/registerGuildCommands.js",
+        "dev": "deno task guild-refresh && deno task start"
     }
 }
