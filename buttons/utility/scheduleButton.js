@@ -3,7 +3,7 @@ import { EmbedBuilder, ButtonBuilder } from "npm:discord.js"
 import IcsHeH from "../../classes/IcsHeH.js"
 import couldBeInteger from "../../lib/couldBeInteger.js"
 import computeStartAndEndOfADay from "../../lib/computeStartAndEndOfADay.js"
-import getEnv from "../../scripts/getEnv.js"
+import getEnv from "../../lib/getEnv.js"
 
 const daysFrenchText = {
     "-1": "Hier",

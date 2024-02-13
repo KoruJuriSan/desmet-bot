@@ -2,7 +2,7 @@ import { REST, Routes } from "npm:discord.js"
 import fs from "node:fs"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
-import getEnv from "./getEnv.js"
+import getEnv from "../lib/getEnv.js"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
