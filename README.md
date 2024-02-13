@@ -40,14 +40,6 @@ start the bot in dev mode (need GUILDID in .env)
 deno task dev
 ```
 
-## Uninstall service (server)
-
-- to remove the service, you just have to run this command:
-```bash
-deno task remove-service
-```
-
-
 ## Install service (server)
 
 - Prerequisites: 
@@ -57,6 +49,13 @@ deno task remove-service
 - Create the service with the command below:
 ```bash
 deno task create-service
+```
+
+## Uninstall service (server)
+
+- to remove the service, you just have to run this command:
+```bash
+deno task remove-service
 ```
 
 ## 📝 License
