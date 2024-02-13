@@ -22,4 +22,4 @@
 - [] Polish step
     - [x] Add a dev task alongside the start one (Guildid)
     - [x] Add a add service/remove service script
-    - [] Add informations in the README, at least a description, install tutorial (dev/deploy), licence footer
+    - [x] Add informations in the README, at least a description, install tutorial (dev/deploy), licence footer
