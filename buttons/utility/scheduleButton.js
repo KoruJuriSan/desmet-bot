@@ -50,7 +50,7 @@ export default {
         const dateText = day_start.format("DD/MM/YYYY")
 
         // Schedule from the online ics.
-        let schedule = await new IcsHeH(ICALURL)
+        const schedule = await new IcsHeH(ICALURL)
             .getCoursesOfGroup(day_start, day_end, group)
 
         // Embed of the course schedule that the user requested.
