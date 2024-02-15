@@ -24,7 +24,7 @@ export default {
                 .setName("ephemeral")
                 .setDescription("est-ce que le message doit-etre invisible pour les autre utilisateurs ou non ?")
         ),
-    async execute(interaction, client) {
+    async execute(interaction) {
         // geting command's args
         const args = interaction.options
         const group = args.getString("groupe")
@@ -38,11 +38,11 @@ export default {
             .setColor("#8fbc8f")
             .setFooter({
                 text: "Si jamais il y un probleme avec le bot => #desmet-bot",
-                iconURL: client.user.avatarURL()
+                iconURL: interaction.client.user.avatarURL()
             })
 
         // Buttons under the embeds, each button with its own "day-offset"
-        const button = client.buttons.get("schedule")
+        const button = interaction.client.buttons.get("schedule")
         const row = new ActionRowBuilder()
             .addComponents(
                 button.create("Hier", ButtonStyle.Danger, group, -1),
