@@ -38,7 +38,7 @@ export default {
             .setColor("#8fbc8f")
             .setFooter({
                 text: "S'il y a un problème avec le bot => #desmet-bot",
-                iconURL: client.user.avatarURL()
+                iconURL: interaction.client.user.avatarURL()
             })
 
         // Buttons under the embeds, each button with its own "day-offset"
