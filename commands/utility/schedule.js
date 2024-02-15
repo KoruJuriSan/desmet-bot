@@ -37,7 +37,7 @@ export default {
             .setThumbnail(thumbnailURL)
             .setColor("#8fbc8f")
             .setFooter({
-                text: "Si jamais il y un probleme avec le bot => #desmet-bot",
+                text: "S'il y a un problème avec le bot => #desmet-bot",
                 iconURL: client.user.avatarURL()
             })
 
