@@ -9,7 +9,7 @@ const thumbnailURL = "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2
 export default {
     data: new SlashCommandBuilder()
         .setName("schedule")
-        .setDescription("Donne l'horraire pour un groupe precis dans ")
+        .setDescription("Donne l'horaire pour un groupe precis dans ")
         .addStringOption(option => 
             option
                 .setName("groupe")
