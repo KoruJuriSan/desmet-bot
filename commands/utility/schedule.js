@@ -37,13 +37,8 @@ export default {
             .setThumbnail(thumbnailURL)
             .setColor("#8fbc8f")
             .setFooter({
-<<<<<<< HEAD
-                text: "Si jamais il y un probleme avec le bot => #desmet-bot",
-                iconURL: interaction.client.user.avatarURL()
-=======
                 text: "S'il y a un problème avec le bot => #desmet-bot",
                 iconURL: client.user.avatarURL()
->>>>>>> origin/master
             })
 
         // Buttons under the embeds, each button with its own "day-offset"
