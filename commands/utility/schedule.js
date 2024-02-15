@@ -9,7 +9,7 @@ const thumbnailURL = "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2
 export default {
     data: new SlashCommandBuilder()
         .setName("schedule")
-        .setDescription("Donne l'horraire pour un groupe precis dans ")
+        .setDescription("Donne l'horaire pour un groupe precis dans ")
         .addStringOption(option => 
             option
                 .setName("groupe")
@@ -32,13 +32,18 @@ export default {
 
         // Embed describes what does the button under it
         const embed = new EmbedBuilder()
-            .setTitle("Horraire")
-            .setDescription(`Horaire des cours pour les élèves en première année de Bacheliers en informatique à la HEH. L'horaire suivant est pour le groupe ${group}\n\n> Hier\n> Aujourd'hui\n> Demain\n> Apres-demain\n> Surlandemain \n`)
+            .setTitle("Horaire")
+            .setDescription(`Horaire des cours pour les élèves en première année de Bacheliers en informatique à la HEH. L'horaire suivant est pour le groupe ${group}\n\n> Hier\n> Aujourd'hui\n> Demain\n> Après-demain\n> Surlendemain \n`)
             .setThumbnail(thumbnailURL)
             .setColor("#8fbc8f")
             .setFooter({
+<<<<<<< HEAD
                 text: "Si jamais il y un probleme avec le bot => #desmet-bot",
                 iconURL: interaction.client.user.avatarURL()
+=======
+                text: "S'il y a un problème avec le bot => #desmet-bot",
+                iconURL: client.user.avatarURL()
+>>>>>>> origin/master
             })
 
         // Buttons under the embeds, each button with its own "day-offset"

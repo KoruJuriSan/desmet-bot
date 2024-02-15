@@ -55,9 +55,9 @@ export default {
 
         // Embed of the course schedule that the user requested.
         const embed = new EmbedBuilder()
-            .setTitle(`Horraire: ${daysFrenchText[String(day_offset)]} - ${dayOfTheWeekText} ${dateText}`)
+            .setTitle(`Horaire: ${daysFrenchText[String(day_offset)]} - ${dayOfTheWeekText} ${dateText}`)
             .setURL(ICALURL)
-            .setDescription(`Horraire des cours de l'option pour le **Groupe ${group}**`)
+            .setDescription(`Horaire des cours de l'option pour le **Groupe ${group}**`)
             .addFields(...schedule.map(course => {
                 const startHourText = course.date.start.format("HH:mm")
                 const endHoursText = course.date.end.format("HH:mm")
