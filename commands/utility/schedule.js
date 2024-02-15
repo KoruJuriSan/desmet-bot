@@ -32,8 +32,8 @@ export default {
 
         // Embed describes what does the button under it
         const embed = new EmbedBuilder()
-            .setTitle("Horraire")
-            .setDescription(`Horaire des cours pour les élèves en première année de Bacheliers en informatique à la HEH. L'horaire suivant est pour le groupe ${group}\n\n> Hier\n> Aujourd'hui\n> Demain\n> Apres-demain\n> Surlandemain \n`)
+            .setTitle("Horaire")
+            .setDescription(`Horaire des cours pour les élèves en première année de Bacheliers en informatique à la HEH. L'horaire suivant est pour le groupe ${group}\n\n> Hier\n> Aujourd'hui\n> Demain\n> Après-demain\n> Surlendemain \n`)
             .setThumbnail(thumbnailURL)
             .setColor("#8fbc8f")
             .setFooter({
