@@ -6,6 +6,7 @@ const delayBeforeCountdown = 2500
 const delayBeforeKick = 1500
 const countdownSeconds = 5
 const rejoinIviteAgeSeconds = 60
+const ChanceToWin = 6
 const teasingImg = "https://media1.tenor.com/m/xqS6tMixZboAAAAd/kurtlar-vadisi-%C3%A7ak%C4%B1r.gif"
 const loseImg = "https://media1.tenor.com/m/eEs1jRy5UXgAAAAC/house-explosion.gif"
 const winImg = "https://media1.tenor.com/m/jNXwTFt0PFMAAAAC/spongebob-squarepants.gif"
@@ -47,7 +48,7 @@ export default {
             channel.send({ embeds: [embed]})
         }
 
-        const random = randomInt(3)
+        const random = randomInt(ChanceToWin)
 
         await sleep(1000)
 
