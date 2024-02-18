@@ -64,9 +64,11 @@ export default {
             await sleep(delayBeforeKick)
 
             // Create, and send a invite to the guild in DM of the user.
-            const dm = await interaction.user.createDM(true)
-            const invite = await channel.createInvite({ maxAge: rejoinIviteAgeSeconds+10, maxUses: 1 })
-            dm.send({ content: `Gros BAKA! tu as encore joué à la roulette russe. \nBon, c'est bien parce que c'est toi, voila une invitation.\nAttention, tu n'as que ${rejoinIviteAgeSeconds} secondes pour rejoindre. \n${invite}`})
+            try {
+                const dm = await interaction.user.createDM(true)
+                const invite = await channel.createInvite({ maxAge: rejoinIviteAgeSeconds+10, maxUses: 1 })
+                dm.send({ content: `Gros BAKA! tu as encore joué à la roulette russe. \nBon, c'est bien parce que c'est toi, voila une invitation.\nAttention, tu n'as que ${rejoinIviteAgeSeconds} secondes pour rejoindre. \n${invite}`})
+            } catch(err) {console.log(err)}
 
             // Kick the user if can.
             try {interaction.member.kick("Joue a la roulette russe.")}
