@@ -67,12 +67,12 @@ export default {
             try {
                 const dm = await interaction.user.createDM(true)
                 const invite = await channel.createInvite({ maxAge: rejoinIviteAgeSeconds+10, maxUses: 1 })
-                dm.send({ content: `Gros BAKA! tu as encore joué à la roulette russe. \nBon, c'est bien parce que c'est toi, voila une invitation.\nAttention, tu n'as que ${rejoinIviteAgeSeconds} secondes pour rejoindre. \n${invite}`})
-            } catch(err) {console.log(err)}
+                await dm.send({ content: `Gros BAKA! tu as encore joué à la roulette russe. \nBon, c'est bien parce que c'est toi, voila une invitation.\nAttention, tu n'as que ${rejoinIviteAgeSeconds} secondes pour rejoindre. \n${invite}`})
+            } catch(err) {console.error(err)}
 
             // Kick the user if can.
-            try {interaction.member.kick("Joue a la roulette russe.")}
-            catch(err) {console.log(err)}
+            try {await interaction.member.kick("Joue a la roulette russe.")}
+            catch(err) {console.error(err)}
         } else {
             finalEmbed = finalEmbed
                 .setTitle("Click...")
