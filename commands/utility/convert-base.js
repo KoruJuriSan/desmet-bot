@@ -47,7 +47,6 @@ export default {
         const numberString = args.getString("nombre")
         const isEphemeral = args.getBoolean("ephemeral") ?? true
 
-        console.log(numberString, fromBase, toBase)
         let  isCorrectNumber = false
         
         switch (fromBase) {
@@ -78,7 +77,7 @@ export default {
                     iconURL: bot.displayAvatarURL(),
                 })
                 .setTitle("Conversion de base.")
-                .setDescription(`Nombre d'origine  en base ${fromBase}\n\`( ${numberString} )_${fromBase}\`\n\nConversion en base ${toBase}\n\`( ${answer} )_${toBase}\``)
+                .setDescription(`Nombre d'origine  en base ${fromBase}\n\`\`\`( ${numberString} )_${fromBase}\`\`\`\n\nConversion en base ${toBase}\n\`\`\`( ${answer} )_${toBase}\`\`\``)
                 .setColor("#8fbc8f")
 
             await interaction.reply({
