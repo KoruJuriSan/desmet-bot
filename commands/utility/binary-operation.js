@@ -77,7 +77,8 @@ export default {
                 .setColor("#8fbc8f")
 
             await interaction.reply({
-                embeds: [embed]
+                embeds: [embed],
+                ephemeral: isEphemeral
             })
 
         } else {
