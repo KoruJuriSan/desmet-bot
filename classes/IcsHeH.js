@@ -51,10 +51,13 @@ export default class IcsHeH {
             }).split(" : ")[1]
         }
 
+        const canceled = description.includes("Annulation")
+
         return {
             "subject": subject, "teacher": teacher,
             "room": location, "group": group,
-            "date": { "start": event_start, "end": event_end }
+            "date": { "start": event_start, "end": event_end },
+            "canceled": canceled
         }
     }
 
@@ -105,7 +108,7 @@ export default class IcsHeH {
     async getCoursesOfGroup(from_period, to_period, group) {
         const courses = await this.getCourses(from_period, to_period)
         const  filteredCourses = courses.filter((course) => {
-            return course.group == "common" || course.group == group
+            return (course.group == "common" || course.group == group) && !course.canceled
         })
         return filteredCourses
     }
