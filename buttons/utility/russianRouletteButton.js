@@ -2,7 +2,7 @@ import { EmbedBuilder, ButtonBuilder } from "npm:discord.js"
 import randomInt from "../../lib/randomInt.js"
 import sleep from "../../lib/sleep.js"
 
-const delayBeforeKick = 1500
+const delayBeforeKick = 1000
 const countdownSeconds = 7
 const rejoinIviteAgeSeconds = 60
 const ChanceToWin = 6
@@ -79,12 +79,31 @@ export default {
                 try {
                     const dm = await interaction.user.createDM(true)
                     const invite = await channel.createInvite({ maxAge: rejoinIviteAgeSeconds+10, maxUses: 1 })
-                    await dm.send({ content: `Gros BAKA! tu as encore joué à la roulette russe. \nBon, c'est bien parce que c'est toi, voila une invitation.\nAttention, tu n'as que ${rejoinIviteAgeSeconds} secondes pour rejoindre. \n${invite}`})
+                    const invitationEmbed = new EmbedBuilder()
+                        .setTitle(`Invitation (${rejoinIviteAgeSeconds}s !)`)
+                        .setURL(`${invite}`)
+                        .setDescription(`**Gros baka!**, Tu as encore joué à la roulette russe.\n\nBon, c'est bien parce que c'est toi, voila une [invitation](${invite}) pour revenir dans le serveur.\n\nAttention, tu n'as que **${rejoinIviteAgeSeconds} secondes** pour rejoindre.`)
+                        .setColor("#00b0f4");
+
+                    await dm.send({
+                        embeds: [invitationEmbed]
+                    })
                 } catch(err) {console.error(err)}
 
                 // Kick the user if can.
                 try {await interaction.member.kick("Joue a la roulette russe.")}
-                catch(err) {console.error(err)}
+                catch {
+                    embed = new EmbedBuilder()
+                    .setTitle(`${interaction.user.displayName} joue a la roulette russe...`)
+                    .setDescription(`Erreur: Le bot n'a pas la permission de kick l'utilisateur"${interaction.user.displayName}"`)
+                    .setColor("#e01b24")
+                    .setFooter({
+                        text: interaction.user.displayName,
+                        iconURL: interaction.user.displayAvatarURL(),
+                    })
+
+                    await interaction.editReply({ embeds: [embed]})                    
+                }
             } else {
                 embed = new EmbedBuilder()
                     .setTitle(`${interaction.user.displayName} joue a la roulette russe...`)
