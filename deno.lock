@@ -5,7 +5,8 @@
       "npm:axios": "npm:axios@1.6.7",
       "npm:dayjs": "npm:dayjs@1.11.10",
       "npm:discord.js": "npm:discord.js@14.14.1",
-      "npm:ical": "npm:ical@0.8.0"
+      "npm:ical": "npm:ical@0.8.0",
+      "npm:netmask": "npm:netmask@2.0.2"
     },
     "npm": {
       "@discordjs/builders@1.7.0": {
@@ -195,6 +196,10 @@
         "dependencies": {
           "mime-db": "mime-db@1.52.0"
         }
+      },
+      "netmask@2.0.2": {
+        "integrity": "sha512-dBpDMdxv9Irdq66304OLfEmQ9tbNRFnFTuZiLo+bD+r332bBmMJ8GBLXklIXXgxd3+v9+KUnZaUR5PJMa75Gsg==",
+        "dependencies": {}
       },
       "proxy-from-env@1.1.0": {
         "integrity": "sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==",
