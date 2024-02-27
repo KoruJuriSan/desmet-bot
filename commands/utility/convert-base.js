@@ -7,7 +7,7 @@ export default {
         .setDescription("Permet de réaliser des conversions de base mathématique (binaire, octale, décimale, hexadécimale).")
         .addStringOption(option => 
             option
-                .setName("from")
+                .setName("de")
                 .setDescription("La base d'origine.")
                 .setRequired(true)
                 .addChoices(
@@ -18,7 +18,7 @@ export default {
         ))
         .addStringOption(option => 
             option
-                .setName("to")
+                .setName("a")
                 .setDescription("La base de la réponse.")
                 .setRequired(true)
                 .addChoices(
@@ -42,8 +42,8 @@ export default {
     async execute(interaction) {
         const bot = interaction.client.user
         const args = interaction.options
-        const fromBase = parseInt(args.getString("from"))
-        const toBase = parseInt(args.getString("to"))
+        const fromBase = parseInt(args.getString("de"))
+        const toBase = parseInt(args.getString("a"))
         const numberString = args.getString("nombre")
         const isEphemeral = args.getBoolean("ephemeral") ?? true
 

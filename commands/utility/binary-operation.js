@@ -4,7 +4,7 @@ import { isBinary } from "../../lib/baseVerification.js"
 export default {
     data: new SlashCommandBuilder()
         .setName("binary-operation")
-        .setDescription("Permet de faire des operations elementaires sur des nombres binaires")
+        .setDescription("Permet de faire des opérations élémentaires sur des nombres binaires")
         .addNumberOption(option => 
             option
                 .setName("nombre-1")
@@ -14,7 +14,7 @@ export default {
         .addStringOption(option => 
             option
                 .setName("operateur")
-                .setDescription("L'operateur du calcul")
+                .setDescription("L'opérateur du calcul binaire")
                 .setRequired(true)
                 .setChoices(
                     {name: "+", value: "+"},
@@ -73,7 +73,7 @@ export default {
                     iconURL: bot.displayAvatarURL(),
                 })
                 .setTitle("Conversion de base.")
-                .setDescription(`Operation\n\`\`\`${firstNumber} ${operator} ${secondNumber}\`\`\`\nRésultat en binaire.\n\`\`\`${binaryResult}\`\`\`\nRésultat en décimal.\n\`\`\`${result}\`\`\``)
+                .setDescription(`Opération\n\`\`\`${firstNumber} ${operator} ${secondNumber}\`\`\`\nRésultat en binaire.\n\`\`\`${binaryResult}\`\`\`\nRésultat en décimal.\n\`\`\`${result}\`\`\``)
                 .setColor("#8fbc8f")
 
             await interaction.reply({

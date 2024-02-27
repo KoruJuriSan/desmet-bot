@@ -7,11 +7,11 @@ import isAddrPrivate from "../../lib/isAddrPrivate.js"
 export default {
     data: new SlashCommandBuilder()
         .setName("ip-info")
-        .setDescription("Donne des information sur une addresse IPv4")
+        .setDescription("Donne des informations sur une addresse IPv4")
         .addStringOption(option =>
             option
                 .setName("addresse")
-                .setDescription("L'addresse IPv4 en question")
+                .setDescription("L'addresse IPv4 en question sous le format x.x.x.x/CIDR (CIDR de 0-30) (x de 0-255)")
                 .setRequired(true)
                 .setMinLength(7)
                 .setMaxLength(75)
@@ -39,7 +39,7 @@ export default {
                     iconURL: bot.displayAvatarURL(),
                 })
                 .setTitle("Informations the about provided IP.")
-                .setDescription(`L'addresse ip.\n\`\`\`\n${addrString}\n\`\`\`\nLe masque de sous reseaux.\n\`\`\`\n${addr.mask}\n\`\`\`\nL'addresse de reseau.\n\`\`\`\n${addr.base}\n\`\`\`\nL'addresse de broadcast.\n\`\`\`\n${addr.broadcast}\n\`\`\`\nLa plage d'addresses utile.\n\`\`\`\n${addr.first}/${addr.bitmask} -> ${addr.last}/${addr.bitmask}\n\`\`\`\nLa plage d'addresses.\n\`\`\`\n${addr.base}/${addr.bitmask} -> ${addr.broadcast}/${addr.bitmask}\n\`\`\`\nType\n\`\`\`\n${type}\n\`\`\`\nClasse\n\`\`\`\n${addrClass}\n\`\`\`\nNombres d'hotes: \`${addr.size-2}\` |  Nombres d'addresses \`${addr.size}\``)
+                .setDescription(`L'adresse IP.\n\`\`\`\n${addrString}\n\`\`\`\nLe masque de sous-réseaux.\n\`\`\`\n${addr.mask}\n\`\`\`\nL'adresse de réseau.\n\`\`\`\n${addr.base}\n\`\`\`\nL'adresse de diffusion.\n\`\`\`\n${addr.broadcast}\n\`\`\`\nLa plage d'adresses utiles.\n\`\`\`\n${addr.first}/${addr.bitmask} -> ${addr.last}/${addr.bitmask}\n\`\`\`\nLa plage d'adresses.\n\`\`\`\n${addr.base}/${addr.bitmask} -> ${addr.broadcast}/${addr.bitmask}\n\`\`\`\nType\n\`\`\`\n${type}\n\`\`\`\nClasse\n\`\`\`\n${addrClass}\n\`\`\`\nNombre d'hôtes : \`${addr.size-2}\` | Nombre d'adresses : \`${addr.size}\``)
                 .setColor("#8fbc8f")
 
             await interaction.reply({
@@ -48,7 +48,7 @@ export default {
             })
         } else {
             await interaction.reply({
-                content: `L'addresse ${addrString}, n'est pas au bon format. (x.x.x.x/CIDR (CIDR de 0-30), ex: 192.168.0.12/24)`,
+                content: `L'addresse ${addrString}, n'est pas au bon format. (x.x.x.x/CIDR (CIDR de 0-30)), ex: 192.168.0.12/24)`,
                 ephemeral: true
             })
         }
