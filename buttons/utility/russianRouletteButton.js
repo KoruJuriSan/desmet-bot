@@ -3,8 +3,8 @@ import randomInt from "../../lib/randomInt.js"
 import sleep from "../../lib/sleep.js"
 
 const delayBeforeKick = 1000
-const countdownSeconds = 7
-const rejoinIviteAgeSeconds = 60
+const countdownSeconds = 10
+const rejoinIviteAgeSeconds = 120
 const ChanceToWin = 6
 const teasingImg = "https://media1.tenor.com/m/xqS6tMixZboAAAAd/kurtlar-vadisi-%C3%A7ak%C4%B1r.gif"
 const loseImg = "https://media1.tenor.com/m/eEs1jRy5UXgAAAAC/house-explosion.gif"
