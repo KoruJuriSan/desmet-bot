@@ -32,6 +32,7 @@ export default {
                 .setName("nombre")
                 .setDescription("le nombre a changer de base.")
                 .setRequired(true)
+                .setMaxLength(100)
         )
         .addBooleanOption(option => 
             option
