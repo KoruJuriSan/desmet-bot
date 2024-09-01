@@ -13,9 +13,11 @@
   "dependencies": {
     "discord.js": "^14.15.3",
     "dotenv": "^16.4.5",
-    "mongoose": "^8.6.0"
+    "mongoose": "^8.6.0",
+    "netmask": "^2.0.2"
   },
   "devDependencies": {
+    "@types/netmask": "^2.0.5",
     "nodemon": "^3.1.4"
   }
 }
