@@ -37,7 +37,6 @@ const createAnnonce = new Command("create-annonce", "Crée un embed d'annonce da
             .setTimestamp()
             .setFooter({ text: username, iconURL: pp })
 
-
         await interaction.channel.send({ embeds: [annonceEmbed], content: `${mention}`})
     })
 
