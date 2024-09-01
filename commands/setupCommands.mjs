@@ -19,7 +19,7 @@ async function main() {
 
             try {
                 const commandsJSON = commands.map((command) => {
-                    console.log(`-> Parsing the ${command.name} command.`)
+                    console.log(`-> Parsing the ${command.builder.name} command.`)
                     return command.builder.toJSON()
                 })
         
