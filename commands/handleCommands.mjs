@@ -17,6 +17,10 @@ export default async function handleCommands(interaction) {
 
     if ( command instanceof Command) {
         console.log(`${interaction.user.tag} executed /${interaction.commandName}`)
-        await command.execute(interaction)
+        try {
+            await command.execute(interaction)
+        } catch(err) {
+            console.error(err)
+        }
     }
 }
