@@ -15,7 +15,7 @@ const info = new Command("info", "Permet d'obtenir des informations à propos du
             .setTitle("Informations")
             .setDescription(`Salut, c'est moi, ${bot.displayName}! Je suis née le \`${dayjs(bot.createdAt).format("DD/MM/YYYY")}\`\n\n Je suis présente dans \`${interaction.client.guilds.cache.size}\` serveurs.\n\n Tu peux aussi jeter un coup d'œil à mon [Github](${github}).\n Si tu veux apporter des améliorations, n'hésite pas à contribuer! uwu~\n`)
             .setThumbnail(bot.displayAvatarURL())
-            .setColor("#8fbc8f")
+            .setColor("#ff89f5")
             .setFooter({
                 text: bot.displayName,
                 iconURL: bot.displayAvatarURL(),

@@ -24,7 +24,7 @@ const ipInfo = new Command("ip-info", "Donne des informations sur une addresse I
                 })
                 .setTitle("Informations sur l'addresse IP fournie")
                 .setDescription(`L'adresse IP.\n\`\`\`\n${addrString}\n\`\`\`\nLe masque de sous-réseaux.\n\`\`\`\n${addr.mask}\n\`\`\`\nL'adresse de réseau.\n\`\`\`\n${addr.base}\n\`\`\`\nL'adresse de diffusion.\n\`\`\`\n${addr.broadcast}\n\`\`\`\nLa plage d'adresses utiles.\n\`\`\`\n${addr.first}/${addr.bitmask} -> ${addr.last}/${addr.bitmask}\n\`\`\`\nLa plage d'adresses.\n\`\`\`\n${addr.base}/${addr.bitmask} -> ${addr.broadcast}/${addr.bitmask}\n\`\`\`\nType\n\`\`\`\n${type}\n\`\`\`\nClasse\n\`\`\`\n${addrClass}\n\`\`\`\nNombre d'hôtes : \`${addr.size-2}\` | Nombre d'adresses : \`${addr.size}\``)
-                .setColor("#8fbc8f")
+                .setColor("#ff89f5")
 
             await interaction.reply({
                 embeds: [embed],
