@@ -3,13 +3,15 @@ import whoami from "./user/whoami.mjs"
 import ping from "./user/ping.mjs"
 import ipInfo from "./user/ipInfo.mjs"
 import binaryOperation from "./user/binaryOperation.mjs"
+import convertBase from "./user/convertBase.mjs"
 
 const commands = [
     createAnnonce,
     whoami,
     ping,
     ipInfo,
-    binaryOperation
+    binaryOperation,
+    convertBase
 ]
 
 export default commands
