@@ -9,7 +9,7 @@ const binaryOperation = new Command("binary-operation", "Permet de faire des op�
         const firstNumberString = args.getNumber("nombre-1")
         const secondNumberString = args.getNumber("nombre-2")
         const operator = args.getString("operateur")
-        const isEphemeral = args.getBoolean("ephemeral") ?? true
+        const isEphemeral = args.getBoolean("invisible") ?? true
 
         if (isBinary(firstNumberString) && isBinary(secondNumberString)) {
             const firstNumber = parseInt(firstNumberString, 2)
@@ -83,10 +83,9 @@ binaryOperation.builder = binaryOperation.builder
             .setDescription("Le deuxième nombre de l'opération.")
             .setRequired(true)
     )
-    .addBooleanOption(option => 
-        option
-            .setName("ephemeral")
-            .setDescription("est-ce que le message doit-etre invisible pour les autre utilisateurs ou non ?")
+    .addBooleanOption(option => option
+        .setName("invisible")
+        .setDescription("Si le message doit être invisible pour les autres utilisateurs, oui par défaut.")
     )
 
 export default binaryOperation

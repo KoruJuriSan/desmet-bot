@@ -9,7 +9,7 @@ const ipInfo = new Command("ip-info", "Donne des informations sur une addresse I
     .setExecute( async (interaction) => {
         const args = interaction.options
         const addrString = args.getString("addresse")
-        const isEphemeral = args.getBoolean("ephemeral") ?? true
+        const isEphemeral = args.getBoolean("invisible") ?? true
         
         if (isValidIpv4(addrString)) {
             const bot = interaction.client.user
@@ -47,10 +47,9 @@ ipInfo.builder = ipInfo.builder
             .setMinLength(7)
             .setMaxLength(75)
     )
-    .addBooleanOption(option => 
-        option
-            .setName("ephemeral")
-            .setDescription("est-ce que le message doit-etre invisible pour les autre utilisateurs ou non ?")
+    .addBooleanOption(option => option
+        .setName("invisible")
+        .setDescription("Si le message doit être invisible pour les autres utilisateurs, oui par défaut.")
     )
 
 export default ipInfo
