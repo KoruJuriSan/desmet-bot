@@ -1,6 +1,6 @@
 import { Client, Events, GatewayIntentBits } from "discord.js"
 import mongoose from "mongoose"
-import guildSchema from "./schemas/guild.mjs"
+import { GuildModel } from "./schemas/models.mjs"
 import handleCommands from "./commands/handleCommands.mjs"
 import dotenv from "dotenv"
 
@@ -31,7 +31,6 @@ async function main() {
         console.log("Updating guilds in Database...")
         try {
             const guilds = await client.guilds.fetch()
-            const GuildModel = mongoose.model("Guilds", guildSchema)
             let guildIdsDB = (await GuildModel.find({}, {guild_id: 1, _id: 0})).map( guild => guild.guild_id ?? "")
     
             for (const guild of guilds) {
