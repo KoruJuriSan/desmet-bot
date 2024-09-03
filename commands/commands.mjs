@@ -5,6 +5,7 @@ import ipInfo from "./user/ipInfo.mjs"
 import binaryOperation from "./user/binaryOperation.mjs"
 import convertBase from "./user/convertBase.mjs"
 import info from "./user/info.mjs"
+import setChannel from "./admin/SetChannel.mjs"
 
 const commands = [
     createAnnonce,
@@ -13,7 +14,8 @@ const commands = [
     ipInfo,
     binaryOperation,
     convertBase,
-    info
+    info,
+    setChannel
 ]
 
 export default commands
