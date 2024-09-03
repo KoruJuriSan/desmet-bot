@@ -8,6 +8,8 @@ import { GuildModel } from "../schemas/models.mjs"
 export default async function clientReady(client) {
 
     console.log(`Client connected as ${client.user.tag}!`)
+
+    if (!client.isDbConnected) return
     console.log("Updating guilds in Database...")
 
     try {

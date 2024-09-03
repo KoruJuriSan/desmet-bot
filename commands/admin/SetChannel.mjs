@@ -9,6 +9,14 @@ const setChannel = new Command("set-channel", "Définis le salon dans lequel les
         const type = args.getString("type")
         const guildId = interaction.guild.id
 
+        if (!interaction.client.isDbConnected) {
+            interaction.reply({
+                content: "Cette fonctionnalité n'est disponible qu'avec une base de données, or le bot n'est connecté à aucune.",
+                ephemeral: true
+            })
+            return
+        }
+
         if (channel instanceof TextChannel) {
             switch(type) {
                 case "ticket": await GuildModel.updateOne({guild_id: guildId}, {ticket_channel: channel.id}); break

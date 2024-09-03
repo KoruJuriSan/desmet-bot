@@ -9,7 +9,7 @@ async function main() {
     dotenv.config()
     const token = process.env.TOKEN
 
-    const isDbConnected = mongodbSetup()
+    const isDbConnected = await mongodbSetup()
 
     const client = new Client({ intents: [
         GatewayIntentBits.Guilds,
@@ -17,6 +17,8 @@ async function main() {
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent,
     ]})
+
+    client.isDbConnected = isDbConnected
 
     client.once(Events.ClientReady, clientReady)
 
