@@ -6,6 +6,9 @@ const setChannel = new Command("set-channel", "Définis le salon dans lequel les
     .setExecute( async (interaction) => {
         const args = interaction.options
         const channel = args.getChannel("salon") ?? interaction.channel
+        /**
+         * @type {"ticket"|"welcome"|"anniversary"}
+         */
         const type = args.getString("type")
         const guildId = interaction.guild.id
 
@@ -21,6 +24,7 @@ const setChannel = new Command("set-channel", "Définis le salon dans lequel les
             switch(type) {
                 case "ticket": await GuildModel.updateOne({guild_id: guildId}, {ticket_channel: channel.id}); break
                 case "welcome": await GuildModel.updateOne({guild_id: guildId}, {welcomme_channel: channel.id}); break
+                case "anniversary": await GuildModel.updateOne({guild_id: guildId}, {anniversary_channel: channel.id}); break
             }
 
             await interaction.reply({
@@ -47,7 +51,8 @@ setChannel.builder = setChannel.builder
         .setRequired(true)
         .setChoices(
             {name: "ticket", value: "ticket"},
-            {name: "welcome", value: "welcome"}
+            {name: "welcome", value: "welcome"},
+            {name: "anniversary", value: "anniversary"}
         )
     )
     .addChannelOption(option => option 
