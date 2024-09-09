@@ -1,5 +1,7 @@
-import { Client } from "discord.js"
-import { GuildModel } from "../schemas/models.mjs"
+import { Client, TextChannel, userMention } from "discord.js"
+import { GuildModel, AnniversaryModel } from "../schemas/models.mjs"
+import { CronJob } from "cron"
+import dayjs from "dayjs"
 
 /**
  * 
@@ -50,4 +52,61 @@ export default async function clientReady(client) {
         console.log("Couldn't Update guilds in Database:")
         console.error(er)
     }
+
+    const today = dayjs(`2024-${dayjs().format("MM-DD")}`, "MM-DD-YYYY").toDate()
+    const query = {date: today}
+
+    const anniversaryCron = new CronJob(
+        "0 8 * * *",
+        async () => {
+            let anniversaries = await AnniversaryModel.find(query)
+            
+            let guilds = {}
+
+            for (let anniv of anniversaries) {
+
+                try {
+
+                const guild = await client.guilds.fetch(anniv.guild_id)
+                const member = await guild.members.fetch(anniv.user_id)
+                const channelId = (await GuildModel.findOne({guild_id: anniv.guild_id}, {anniversary_channel: 1, _id: -1})).anniversary_channel
+                const channel = await guild.channels.fetch(channelId)
+
+                if (!(!guild && !member && !channel)) {
+
+                    if (Object.keys(guilds).includes(anniv.guild_id)) {
+                        guilds[anniv.guild_id].members.push(member)
+                    } else {
+                        guilds[anniv.guild_id] = {guild: guild, channel: channel, members: [member]}
+                    }
+
+                }
+
+
+                } catch(err) {console.error(err)}
+            }
+
+            guilds = Object.entries(guilds)
+
+            for (let [guild_id, {guild, channel, members}] of guilds) {
+
+                try {
+
+                    const mentions = members.map(member => userMention(member.id)).join(", ")
+                    const message = `||@everyone|| Tous le monde souhaite un joyeux anniversaire a ${mentions}`
+
+                    if (channel instanceof TextChannel) {
+                        await channel.send({
+                            content: message
+                        })
+                    }
+
+                } catch(err) {
+                    console.error(err)
+                }
+            }
+        },
+        null,
+        true
+    )
 }

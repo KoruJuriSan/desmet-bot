@@ -11,10 +11,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cron": "^3.1.7",
     "dayjs": "^1.11.13",
-    "discord.js": "^14.15.3",
+    "discord.js": "^14.16.1",
     "dotenv": "^16.4.5",
-    "mongoose": "^8.6.0",
+    "mongoose": "^8.6.1",
     "netmask": "^2.0.2"
   },
   "devDependencies": {

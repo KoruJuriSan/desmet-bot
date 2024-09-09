@@ -9,6 +9,7 @@ import ipInfo from "./user/ipInfo.mjs"
 import binaryOperation from "./user/binaryOperation.mjs"
 import convertBase from "./user/convertBase.mjs"
 import info from "./user/info.mjs"
+import anniversary from "./user/anniversary.mjs"
 
 const commands = [
     // User commands
@@ -18,6 +19,7 @@ const commands = [
     binaryOperation,
     convertBase,
     info,
+    anniversary,
 
     // Admin commands
     createAnnonce,
