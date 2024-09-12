@@ -11,6 +11,7 @@ import convertBase from "./user/convertBase.mjs"
 import info from "./user/info.mjs"
 import anniversary from "./user/anniversary.mjs"
 import ticket from "./user/ticket.mjs"
+import createTicketForm from "./admin/createTicketForm.mjs"
 
 const commands = [
     // User commands
@@ -25,7 +26,8 @@ const commands = [
 
     // Admin commands
     createAnnonce,
-    setChannel
+    setChannel,
+    createTicketForm
 ]
 
 export default commands

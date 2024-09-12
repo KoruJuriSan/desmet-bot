@@ -10,6 +10,8 @@ import handleModals from "../modal/handleModals.mjs"
 export default async function interactionCreate(interaction) {
     if (interaction.isChatInputCommand()) {
         await handleCommands(interaction)
+    } else if (interaction.isButton()) {
+        await handleButtons(interaction)
     } else if (interaction.isModalSubmit()) {
         await handleModals(interaction)
     }
