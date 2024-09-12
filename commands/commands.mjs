@@ -10,6 +10,7 @@ import binaryOperation from "./user/binaryOperation.mjs"
 import convertBase from "./user/convertBase.mjs"
 import info from "./user/info.mjs"
 import anniversary from "./user/anniversary.mjs"
+import ticket from "./user/ticket.mjs"
 
 const commands = [
     // User commands
@@ -20,6 +21,7 @@ const commands = [
     convertBase,
     info,
     anniversary,
+    ticket,
 
     // Admin commands
     createAnnonce,
