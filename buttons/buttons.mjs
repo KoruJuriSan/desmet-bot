@@ -1,7 +1,9 @@
 import ticketButton from "./ticketButton.mjs"
+import roleButton from "./roleButton.mjs"
 
 const buttons = [
-    ticketButton
+    ticketButton,
+    roleButton
 ]
 
 export default buttons
