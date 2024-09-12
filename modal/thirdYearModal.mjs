@@ -3,7 +3,7 @@ import Modal from "../classes/modal.mjs"
 async function setRole(roleName, interaction) {
     const role = interaction.guild.roles.cache.find(role => role.name === roleName)
     await interaction.member.roles.add([role])
-    await interaction.reply({content: "Vous avez recus votre groupe, Bonne annee sur notre serveur", ephemeral: true})
+    await interaction.reply({content: "Vous avez reçu votre groupe. Bonne année sur notre serveur !", ephemeral: true})
 }
 
 const thirdYearModal = new Modal("third-year-modal", "Formulaire de groupe de 3eme")
