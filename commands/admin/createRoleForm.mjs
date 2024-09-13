@@ -9,7 +9,7 @@ const createRoleForm = new Command("create-role-form", "Crée un embed avec un b
 
             try {
                 const embed = new EmbedBuilder()
-                    .setTitle("Choisit ton groupe")
+                    .setTitle("Choisis ton groupe.")
                     .setDescription("En choisisant votre groupe, vous pourrez ecrire dans le channel qui corespond a celui-ci dans le discord.")
                     .addFields([
                         {name: "1ere", value: "Groupe - 1, 2, 3, 4, 5"},
@@ -22,7 +22,7 @@ const createRoleForm = new Command("create-role-form", "Crée un embed avec un b
                     })
 
             
-                const row = new ActionRowBuilder().addComponents(roleButton.create("Je veux!", ButtonStyle.Primary))
+                const row = new ActionRowBuilder().addComponents(roleButton.create("Choisir!", ButtonStyle.Primary))
 
                 await channel.send({
                     embeds: [embed],

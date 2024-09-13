@@ -11,7 +11,7 @@ import Modal from "../classes/modal.mjs"
 async function setRole(roleName, name, firstname, interaction) {
     const role = interaction.guild.roles.cache.find(role => role.name === roleName)
     await interaction.member.roles.add([role])
-    await interaction.reply({content: "Vous avez reçu votre groupe. Bonne année sur notre serveur !", ephemeral: true})
+    await interaction.reply({content: "Vous avez reçu votre groupe. Bonne première année sur notre serveur !", ephemeral: true})
     try {
         await interaction.member.setNickname(`${name} ${firstname}`, "role-form")
     } catch(err) {}
