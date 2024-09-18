@@ -12,14 +12,14 @@ dependencies:
     specifier: ^1.11.13
     version: 1.11.13
   discord.js:
-    specifier: ^14.16.1
-    version: 14.16.1
+    specifier: ^14.16.2
+    version: 14.16.2
   dotenv:
     specifier: ^16.4.5
     version: 16.4.5
   mongoose:
-    specifier: ^8.6.1
-    version: 8.6.1
+    specifier: ^8.6.3
+    version: 8.6.3
   netmask:
     specifier: ^2.0.2
     version: 2.0.2
@@ -29,8 +29,8 @@ devDependencies:
     specifier: ^2.0.5
     version: 2.0.5
   nodemon:
-    specifier: ^3.1.4
-    version: 3.1.4
+    specifier: ^3.1.5
+    version: 3.1.5
 
 packages:
 
@@ -134,8 +134,8 @@ packages:
     resolution: {integrity: sha512-9Q5iw9+pHZBVLDG700dlQSWWHTYvOb8KfPjfQTNckCYky4IyjV2xh81+RgC1CCwqv92bYLpz1cVKyJav0B88uQ==}
     dev: true
 
-  /@types/node@22.5.4:
-    resolution: {integrity: sha512-FDuKUJQm/ju9fT/SeX/6+gBzoPzlVCzfzmGkwKvRHQVxi4BntVbyIwf6a4Xn62mrvndLiml6z/UBXIdEVjQLXg==}
+  /@types/node@22.5.5:
+    resolution: {integrity: sha512-Xjs4y5UPO/CLdzpgR6GirZJx36yScjh73+2NlLlkFRSoQN8B0DpfXPdZGnvVmLRLOsqDpOfTNv7D9trgGhmOIA==}
     dependencies:
       undici-types: 6.19.8
     dev: false
@@ -153,7 +153,7 @@ packages:
   /@types/ws@8.5.12:
     resolution: {integrity: sha512-3tPRkv1EtkDpzlgyKyI8pGsGZAGPEaXeu0DOj5DI25Ja91bdAYddYHbADRYVrZMRbfW+1l5YwXVDKohDJNQxkQ==}
     dependencies:
-      '@types/node': 22.5.4
+      '@types/node': 22.5.5
     dev: false
 
   /@vladfrangu/async_event_emitter@2.4.6:
@@ -247,8 +247,8 @@ packages:
     resolution: {integrity: sha512-No1BXPcVkyVD4ZVmbNgDKaBoqgeQ+FJpzZ8wqHkfmBnTZig1FcH3iPPersiK1TUIAzgClh2IvOuVUYfcWLQAOA==}
     dev: false
 
-  /discord.js@14.16.1:
-    resolution: {integrity: sha512-/diX4shp3q1F3EySGQbQl10el+KIpffLSOJdtM35gGV7zw2ED7rKbASKJT7UIR9L/lTd0KtNenZ/h739TN7diA==}
+  /discord.js@14.16.2:
+    resolution: {integrity: sha512-VGNi9WE2dZIxYM8/r/iatQQ+3LT8STW4hhczJOwm+DBeHq66vsKDCk8trChNCB01sMO9crslYuEMeZl2d7r3xw==}
     engines: {node: '>=18'}
     dependencies:
       '@discordjs/builders': 1.9.0
@@ -402,8 +402,8 @@ packages:
       mongodb-connection-string-url: 3.0.1
     dev: false
 
-  /mongoose@8.6.1:
-    resolution: {integrity: sha512-dppGcYqvsdg+VcnqXR5b467V4a+iNhmvkfYNpEPi6AjaUxnz6ioEDmrMLOi+sOWjvoHapuwPOigV4f2l7HC6ag==}
+  /mongoose@8.6.3:
+    resolution: {integrity: sha512-++yRmm7hjMbqVA/8WeiygTnEfrFbiy+OBjQi49GFJIvCQuSYE56myyQWo4j5hbpcHjhHQU8NukMNGTwAWFWjIw==}
     engines: {node: '>=16.20.1'}
     dependencies:
       bson: 6.8.0
@@ -446,8 +446,8 @@ packages:
     engines: {node: '>= 0.4.0'}
     dev: false
 
-  /nodemon@3.1.4:
-    resolution: {integrity: sha512-wjPBbFhtpJwmIeY2yP7QF+UKzPfltVGtfce1g/bB15/8vCGZj8uxD62b/b9M9/WVgme0NZudpownKN+c0plXlQ==}
+  /nodemon@3.1.5:
+    resolution: {integrity: sha512-V5UtfYc7hjFD4SI3EzD5TR8ChAHEZ+Ns7Z5fBk8fAbTVAj+q3G+w7sHJrHxXBkVn6ApLVTljau8wfHwqmGUjMw==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
