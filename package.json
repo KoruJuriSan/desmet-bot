@@ -5,7 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "pnpx nodemon index.mjs"
+    "refresh": "node ./commands/setupCommands.mjs",
+    "refersh-dev": "node ./commands/setupCommands.mjs dev",
+    "start": "node index.mjs",
+    "dev": "pnpx nodemon --exec 'pnpm refersh-dev && pnpm run start'"
   },
   "keywords": [],
   "author": "",
