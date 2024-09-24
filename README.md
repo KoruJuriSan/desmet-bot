@@ -1,61 +1,42 @@
 # Desmet-bot
 
 ## Description
-A Discord bot for our Discord server at HEH. For now, it's capable of fetching the course schedule and responding to a ping command, but with your help, I'm sure we'll be able to create the ultimate Discord bot.
+A Discord bot for our Discord server at HEH. Desmet-chan handles ticketing, role management for class groups, it can store data like birthdate in its Own DB and much more.
 
 ## Local Installation
 
 - Prerequisites: 
-    - Have [Deno](https://docs.deno.com/runtime/manual) v1.40.4 or later installed. The bot might work with an older version, but at your own risk.
+    - Have [pnpm](https://pnpm.io/installation) v9.10.0 or later installed.
+    - Have [node](https://nodejs.org/en/download/package-manager) v20.17.0 or later installed.
     - Have a [discord application](https://discord.com/developers/docs/getting-started#step-1-creating-an-app)
+    - Have [Mongodb](https://www.mongodb.com/docs/manual/administration/install-community/) installed and running
 
 1. Clone the repo:
 ```bash
 git clone https://github.com/KoruJuriSan/desmet-bot.git
 ```
 
-2. create a .env with the .env-example entry, then add your own data.
+2. run `pnpm install` to install all the dependencies.
+
+3. create a .env with the .env-example entry, then add your own data.
     - TOKEN: Your Discord bot token
     - CLIENTID: Your Discord bot ID
-    - GUILDID: Test guild ID (optional)
-    - ICALURL:  URL of the schedule (WARNING, the bot was designed for HEH schedules!)
+    - GUILDID: Test guild ID (only for dev)
+
 
 
 ## How to use
 
-start the bot. (without command registering)
-```bash
-deno task start
-```
----
+To start the bot, run
 
-register commands
 ```bash
-deno task refresh
-```
----
-
-start the bot in dev mode (need GUILDID in .env)
-```bash
-deno task dev
+pnpm run refresh
+pnpm start
 ```
 
-## Install service (server)
-
-- Prerequisites: 
-    - You should have done the [Local Installation](#local-installation)
-
-
-- Create the service with the command below:
+Or to run in dev mode
 ```bash
-deno task create-service
-```
-
-## Uninstall service (server)
-
-- to remove the service, you just have to run this command:
-```bash
-deno task remove-service
+pnpm run dev
 ```
 
 ## 📝 License
