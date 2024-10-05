@@ -5,8 +5,8 @@ import secondYearModal from "../modal/secondYearModal.mjs"
 import thirdYearModal from "../modal/thirdYearModal.mjs"
 
 const toDeleteRoles = [
-    "Groupe ❶", "Groupe ❷", "Groupe ❸", "Groupe ❹", "Groupe ❺",
-    "2eme Secu ❶", "2eme Dev ❶", "2eme Dev ❷", "2eme Secu ❷",
+    "Groupe 1", "Groupe 2", "Groupe 3", "Groupe 4", "Groupe 5",
+    "2eme Secu 1", "2eme Dev 1", "2eme Dev 2", "2eme Secu 2",
     "3eme Dev", "3eme Secu"
 ]
 
