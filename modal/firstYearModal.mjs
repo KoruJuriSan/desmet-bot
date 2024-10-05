@@ -29,11 +29,11 @@ const firstYearModal = new Modal("first-year-modal", "Formulaire de groupe de 1e
         try {
             if (name, firstname, group) {
                 switch (group) {
-                    case "1": await setRole("Groupe ❶", name, firstname, interaction); break
-                    case "2": await setRole("Groupe ❷", name, firstname, interaction); break
-                    case "3": await setRole("Groupe ❸", name, firstname, interaction); break
-                    case "4": await setRole("Groupe ❹", name, firstname, interaction); break
-                    case "5": await setRole("Groupe ❺", name, firstname, interaction); break
+                    case "1": await setRole("Groupe 1", name, firstname, interaction); break
+                    case "2": await setRole("Groupe 2", name, firstname, interaction); break
+                    case "3": await setRole("Groupe 3", name, firstname, interaction); break
+                    case "4": await setRole("Groupe 4", name, firstname, interaction); break
+                    case "5": await setRole("Groupe 5", name, firstname, interaction); break
                     default: interaction.reply({content: `Role incorrect! "${group}" n'est pas dans (1, 2, 3, 4, 5)!`, ephemeral: true})
                 }
             }

@@ -18,10 +18,10 @@ const secondYearModal = new Modal("second-year-modal", "Formulaire de groupe de 
         try {
             if (name, firstname, group) {
                 switch (group) {
-                    case "secu-1": await setRole("2eme Secu ❶", interaction); break
-                    case "secu-2": await setRole("2eme Secu ❷", interaction); break
-                    case "dev-1": await setRole("2eme Dev ❶", interaction); break
-                    case "dev-2": await setRole("2eme Dev ❷", interaction); break
+                    case "secu-1": await setRole("2eme Secu 1", interaction); break
+                    case "secu-2": await setRole("2eme Secu 2", interaction); break
+                    case "dev-1": await setRole("2eme Dev 1", interaction); break
+                    case "dev-2": await setRole("2eme Dev 2", interaction); break
                     default: interaction.reply({content: `Role incorrect! "${group}" n'est pas dans (dev-1, dev-2, secu-1, secu-2)!`, ephemeral: true})
                 }
             }
